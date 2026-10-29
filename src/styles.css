@@ -1,0 +1,11 @@
+:root {
+  font-family: 'Avenir Next', Avenir, 'Segoe UI', sans-serif;
+  color: #25372d;
+  background: #f6f8f6;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+button { font: inherit; }
+.page-shell { width: min(100% - 40px, 1160px); margin-inline: auto; }
+:focus-visible { outline: 3px solid #3e9164; outline-offset: 3px; }

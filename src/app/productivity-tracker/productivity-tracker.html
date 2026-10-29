@@ -1,0 +1,36 @@
+<main class="page-shell tracker-page">
+  <header>
+    <p class="eyebrow">Productivité quotidienne</p>
+    <h1>Mes tâches du jour</h1>
+    <p class="intro">Un petit pas à la fois pour atteindre votre objectif.</p>
+  </header>
+
+  <section class="tracker-card" aria-label="Progression du jour">
+    <div class="progress-heading">
+      <div>
+        <p class="label">Progression</p>
+        <p class="count">{{ completedTasks() }} <span>/ {{ dailyGoal }} tâches</span></p>
+      </div>
+      <strong class="percentage">{{ progressPercentage() }} %</strong>
+    </div>
+
+    <div class="progress-track" role="progressbar" [attr.aria-valuenow]="completedTasks()" aria-valuemin="0" [attr.aria-valuemax]="dailyGoal" aria-label="Tâches complétées">
+      <div class="progress-fill" [style.width.%]="progressPercentage() > 100 ? 100 : progressPercentage()"></div>
+    </div>
+
+    <div class="task-markers" aria-hidden="true">
+      @for (slot of taskSlots; track slot) {
+        <span [class.done]="slot <= completedTasks()">{{ slot }}</span>
+      }
+    </div>
+
+    <p class="message" role="status">{{ message() }}</p>
+
+    <div class="actions">
+      <button type="button" class="add-button" (click)="addTask()" [disabled]="completedTasks() >= dailyGoal">+1 Tâche complétée</button>
+      <button type="button" class="reset-button" (click)="reset()">Réinitialiser</button>
+    </div>
+  </section>
+
+  <p class="storage-note">Votre progression est enregistrée dans ce navigateur.</p>
+</main>
