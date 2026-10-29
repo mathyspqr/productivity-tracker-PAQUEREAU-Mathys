@@ -12,5 +12,3 @@ npm start
 Ouvrir `http://localhost:4200/`.
 
 La progression est stockée dans `localStorage` avec la clé `tasks`. L'alerte s'affiche quand l'utilisateur atteint cinq tâches ; un rafraîchissement avec l'objectif déjà atteint ne la répète pas.
-
-Pour vérifier : `npm test -- --watch=false`.
